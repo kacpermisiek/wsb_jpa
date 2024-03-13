@@ -1,13 +1,9 @@
 package com.capgemini.wsb.persistence.entity;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "VISIT")
@@ -25,6 +21,30 @@ public class VisitEntity {
 	public Long getId() {
 		return id;
 	}
+
+	@ManyToOne(
+			cascade = CascadeType.ALL,
+			fetch = FetchType.LAZY,
+			optional = false
+	)
+	private DoctorEntity doctor;  // Relacja dwustronna
+
+	@ManyToOne(
+			cascade = CascadeType.ALL,
+			fetch = FetchType.LAZY,
+			optional = false
+	)
+	private PatientEntity patient;  // Relacja dwustronna
+
+	@OneToMany(
+			cascade = CascadeType.ALL,
+			fetch = FetchType.LAZY
+	)
+	@JoinColumn(name = "VISIT_ID")
+	private Collection<MedicalTreatmentEntity> medicalTreatments;  // Relacja dwustronna
+
+
+	// getters and setters
 
 	public void setId(Long id) {
 		this.id = id;
