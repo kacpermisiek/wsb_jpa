@@ -1,5 +1,7 @@
 package com.capgemini.wsb.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.time.LocalDateTime;
 import java.util.Collection;
 
@@ -18,15 +20,12 @@ public class VisitEntity {
 	@Column(nullable = false)
 	private LocalDateTime time;
 
-	public Long getId() {
-		return id;
-	}
-
 	@ManyToOne(
 			cascade = CascadeType.ALL,
 			fetch = FetchType.LAZY,
 			optional = false
 	)
+	@JoinColumn(name = "DOCTOR_ID")
 	private DoctorEntity doctor;  // Relacja dwustronna
 
 	@ManyToOne(
@@ -45,6 +44,9 @@ public class VisitEntity {
 
 
 	// getters and setters
+	public Long getId() {
+		return id;
+	}
 
 	public void setId(Long id) {
 		this.id = id;
@@ -64,6 +66,30 @@ public class VisitEntity {
 
 	public void setTime(LocalDateTime time) {
 		this.time = time;
+	}
+
+	public DoctorEntity getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(DoctorEntity doctor) {
+		this.doctor = doctor;
+	}
+
+	public PatientEntity getPatient() {
+		return patient;
+	}
+
+	public void setPatient(PatientEntity patient) {
+		this.patient = patient;
+	}
+
+	public Collection<MedicalTreatmentEntity> getMedicalTreatments() {
+		return medicalTreatments;
+	}
+
+	public void setMedicalTreatments(Collection<MedicalTreatmentEntity> medicalTreatments) {
+		this.medicalTreatments = medicalTreatments;
 	}
 
 }

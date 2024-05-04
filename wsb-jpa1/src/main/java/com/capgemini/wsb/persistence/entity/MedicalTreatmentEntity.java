@@ -49,4 +49,20 @@ public class MedicalTreatmentEntity {
 		this.type = type;
 	}
 
+	public TreatmentType getTreatmentType() {
+		return type;
+	}
+
+	public void setTreatmentType(TreatmentType type) {
+		this.type = type;
+	}
+
+	public VisitEntity getVisit() {
+		return visit;
+	}
+
+	public void setVisit(VisitEntity visit) {
+		this.visit = visit;
+	}
+
 }
