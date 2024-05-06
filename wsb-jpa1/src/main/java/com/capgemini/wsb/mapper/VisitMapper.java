@@ -7,6 +7,7 @@ import com.capgemini.wsb.persistence.entity.DoctorEntity;
 import com.capgemini.wsb.persistence.entity.PatientEntity;
 import com.capgemini.wsb.persistence.entity.VisitEntity;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 public final class VisitMapper {
@@ -64,7 +65,7 @@ public final class VisitMapper {
         patientTO.setEmail(patientEntity.getEmail());
         patientTO.setPatientNumber(patientEntity.getPatientNumber());
         patientTO.setDateOfBirth(patientEntity.getDateOfBirth());
-        patientTO.setAdult(patientEntity.isAdult());
+        patientTO.setDiscount(patientEntity.getDiscount());
         return patientTO;
     }
 
@@ -76,9 +77,6 @@ public final class VisitMapper {
         visitEntity.setId(visitTO.getId());
         visitEntity.setDescription(visitTO.getDescription());
         visitEntity.setTime(visitTO.getTime());
-//        visitEntity.setDoctor(DoctorMapper.mapToEntity(visitTO.getDoctor()));
-//
-//        visitEntity.setPatient(PatientMapper.mapToEntity(visitTO.getPatient()));
 
         if (visitTO.getMedicalTreatments() != null) {
             visitEntity.setMedicalTreatments(
@@ -93,4 +91,10 @@ public final class VisitMapper {
         return visitEntity;
     }
 
+    public static List<VisitTO> map2TOs(List<VisitEntity> patientVisits) {
+        return patientVisits
+                .stream()
+                .map(VisitMapper::mapToTO)
+                .collect(Collectors.toList());
+    }
 }

@@ -33,7 +33,7 @@ public class PatientEntity {
 	private LocalDate dateOfBirth;
 
 	@Column(nullable = false)
-	private boolean isAdult;
+	private Integer discount;
 
 	@OneToOne(
 			cascade = CascadeType.REMOVE,
@@ -106,12 +106,12 @@ public class PatientEntity {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public boolean isAdult() {
-		return isAdult;
+	public Integer getDiscount() {
+		return discount;
 	}
 
-	public void setAdult(boolean isAdult) {
-		this.isAdult = isAdult;
+	public void setDiscount(Integer discount) {
+		this.discount = discount;
 	}
 
 	public AddressEntity getAddress() {

@@ -15,6 +15,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -86,7 +88,28 @@ public class PatientServiceImplTest {
         assertThat(firstVisit.getDoctor().getLastName()).isEqualTo("Nowak1");
         assertThat(firstVisit.getPatient().getPatientNumber()).isEqualTo(patientTO.getPatientNumber());
 
-        assertThat(patientTO.isAdult()).isEqualTo(false);
+        assertThat(patientTO.getDiscount()).isEqualTo(15);
+
+    }
+
+    @Transactional
+    @Test
+    public void testFindPatientByIdShouldReturnItsVisits() {
+        // given
+        // when
+        List<VisitTO> patientVisits = patientService.findVisitsByPatientId(1L);
+
+        // then
+        assertThat(patientVisits).isNotNull();
+        assertThat(patientVisits.size()).isEqualTo(2);
+
+        assertThat(patientVisits.get(0).getDoctor().getFirstName()).isEqualTo("Krzysztof");
+        assertThat(patientVisits.get(0).getDoctor().getLastName()).isEqualTo("Nowak1");
+        assertThat(patientVisits.get(0).getTime()).isEqualTo("2020-01-01T12:00");
+
+        assertThat(patientVisits.get(1).getDoctor().getFirstName()).isEqualTo("Marian");
+        assertThat(patientVisits.get(1).getDoctor().getLastName()).isEqualTo("Nowak2");
+        assertThat(patientVisits.get(1).getTime()).isEqualTo("2021-01-02T12:00");
 
     }
 }

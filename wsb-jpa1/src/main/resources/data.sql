@@ -10,11 +10,11 @@ insert into address (id, city, ADDRESS_LINE1 , ADDRESS_LINE2, POSTAL_CODE)
                    (9, 'Rzeszow', 'XYZ', '9', '00-009');
 
 
-insert into patient (id, DATE_OF_BIRTH, EMAIL, FIRST_NAME, LAST_NAME, PATIENT_NUMBER, TELEPHONE_NUMBER, ADDRESS_ID, IS_ADULT)
-            values (1, '1990-01-01', 'elo.cotam@wp.pl', 'Jan', 'Kowalski1', '123456789', '123456789', 1, false),
-                   (2, '1990-01-02', 'elo.cotam@wp.pl', 'Jan', 'Kowalski2', '223456789', '123456789', 2, true),
-                   (3, '1990-01-02', 'elo.cotam@wp.pl', 'Jan', 'Kowalski3', '323456789', '123456789', 3, false),
-                   (4, '1990-01-02', 'elo.cotam@wp.pl', 'Jan', 'Kowalski4', '423456789', '123456789', 4, false);
+insert into patient (id, DATE_OF_BIRTH, EMAIL, FIRST_NAME, LAST_NAME, PATIENT_NUMBER, TELEPHONE_NUMBER, ADDRESS_ID, DISCOUNT)
+            values (1, '1990-01-01', 'elo.cotam@wp.pl', 'Jan', 'Kowalski1', '123456789', '123456789', 1, 15),
+                   (2, '1990-01-02', 'elo.cotam@wp.pl', 'Jan', 'Kowalski2', '223456789', '123456789', 2, 5),
+                   (3, '1990-01-02', 'elo.cotam@wp.pl', 'Jan', 'Kowalski3', '323456789', '123456789', 3, 5),
+                   (4, '1990-01-02', 'elo.cotam@wp.pl', 'Jan', 'Kowalski4', '423456789', '123456789', 4, 0);
 
 insert into doctor(id, DOCTOR_NUMBER, EMAIL, FIRST_NAME, LAST_NAME, SPECIALIZATION, TELEPHONE_NUMBER, ADDRESS_ID)
             values (1, '123456789', 'elo.cotam@wp.pl', 'Krzysztof', 'Nowak1', 'SURGEON', '123456789', 5),

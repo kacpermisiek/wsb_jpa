@@ -18,7 +18,7 @@ public final class PatientMapper{
         patientWithVisitsTO.setEmail(patientEntity.getEmail());
         patientWithVisitsTO.setPatientNumber(patientEntity.getPatientNumber());
         patientWithVisitsTO.setDateOfBirth(patientEntity.getDateOfBirth());
-        patientWithVisitsTO.setAdult(patientEntity.isAdult());
+        patientWithVisitsTO.setDiscount(patientEntity.getDiscount());
         patientWithVisitsTO.setAddress(AddressMapper.mapToTO(patientEntity.getAddress()));
         if (patientEntity.getVisits() != null) {
             patientWithVisitsTO.setVisits(patientEntity.getVisits().stream().map(VisitMapper::mapToTO).collect(Collectors.toList()));
@@ -38,7 +38,7 @@ public final class PatientMapper{
         patientEntity.setEmail(patientWithVisitsTO.getEmail());
         patientEntity.setPatientNumber(patientWithVisitsTO.getPatientNumber());
         patientEntity.setDateOfBirth(patientWithVisitsTO.getDateOfBirth());
-        patientEntity.setAdult(patientWithVisitsTO.isAdult());
+        patientEntity.setDiscount(patientWithVisitsTO.getDiscount());
         patientEntity.setAddress(AddressMapper.mapToEntity(patientWithVisitsTO.getAddress()));
         if (patientWithVisitsTO.getVisits() != null) {
             patientEntity.setVisits(patientWithVisitsTO

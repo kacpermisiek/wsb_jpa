@@ -11,7 +11,7 @@ public class PatientTO implements Serializable {
     protected String email;
     protected String patientNumber;
     protected LocalDate dateOfBirth;
-    protected boolean isAdult;
+    protected Integer discount;
     protected AddressTO address;
 
     public Long getId() {
@@ -70,12 +70,12 @@ public class PatientTO implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public boolean isAdult() {
-        return isAdult;
+    public Integer getDiscount() {
+        return this.discount;
     }
 
-    public void setAdult(boolean adult) {
-        this.isAdult = adult;
+    public void setDiscount(Integer discount) {
+        this.discount = discount;
     }
 
     public AddressTO getAddress() {
