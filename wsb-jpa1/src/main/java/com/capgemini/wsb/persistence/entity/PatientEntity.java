@@ -36,7 +36,7 @@ public class PatientEntity {
 	private boolean isAdult;
 
 	@OneToOne(
-			cascade = CascadeType.ALL,
+			cascade = CascadeType.REMOVE,
 			fetch = FetchType.LAZY,
 			optional = false
 	)

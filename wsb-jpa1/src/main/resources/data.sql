@@ -12,16 +12,16 @@ insert into address (id, city, ADDRESS_LINE1 , ADDRESS_LINE2, POSTAL_CODE)
 
 insert into patient (id, DATE_OF_BIRTH, EMAIL, FIRST_NAME, LAST_NAME, PATIENT_NUMBER, TELEPHONE_NUMBER, ADDRESS_ID, IS_ADULT)
             values (1, '1990-01-01', 'elo.cotam@wp.pl', 'Jan', 'Kowalski1', '123456789', '123456789', 1, false),
-                   (2, '1990-01-02', 'elo.cotam@wp.pl', 'Jan', 'Kowalski2', '123456789', '123456789', 2, true),
-                   (3, '1990-01-02', 'elo.cotam@wp.pl', 'Jan', 'Kowalski3', '123456789', '123456789', 3, false),
-                   (4, '1990-01-02', 'elo.cotam@wp.pl', 'Jan', 'Kowalski4', '123456789', '123456789', 4, false);
+                   (2, '1990-01-02', 'elo.cotam@wp.pl', 'Jan', 'Kowalski2', '223456789', '123456789', 2, true),
+                   (3, '1990-01-02', 'elo.cotam@wp.pl', 'Jan', 'Kowalski3', '323456789', '123456789', 3, false),
+                   (4, '1990-01-02', 'elo.cotam@wp.pl', 'Jan', 'Kowalski4', '423456789', '123456789', 4, false);
 
 insert into doctor(id, DOCTOR_NUMBER, EMAIL, FIRST_NAME, LAST_NAME, SPECIALIZATION, TELEPHONE_NUMBER, ADDRESS_ID)
-            values (1, '123456789', 'elo.cotam@wp.pl', 'Krzystof', 'Nowak1', 'SURGEON', '123456789', 5),
-                   (2, '123456789', 'elo.cotam@wp.pl', 'Krzystof', 'Nowak2', 'GP', '123456789', 6),
-                   (3, '123456789', 'elo.cotam@wp.pl', 'Krzystof', 'Nowak3', 'DERMATOLOGIST', '123456789', 7),
-                   (4, '123456789', 'elo.cotam@wp.pl', 'Krzystof', 'Nowak4', 'OCULIST', '123456789', 8),
-                   (6, '123456789', 'elo.cotam@wp.pl', 'Krzystof', 'Nowak5', 'OCULIST', '123456789', 9);
+            values (1, '123456789', 'elo.cotam@wp.pl', 'Krzysztof', 'Nowak1', 'SURGEON', '123456789', 5),
+                   (2, '123456789', 'elo.cotam@wp.pl', 'Marian', 'Nowak2', 'GP', '123456789', 6),
+                   (3, '123456789', 'elo.cotam@wp.pl', 'Mariusz', 'Nowak3', 'DERMATOLOGIST', '123456789', 7),
+                   (4, '123456789', 'elo.cotam@wp.pl', 'Tomasz', 'Nowak4', 'OCULIST', '123456789', 8),
+                   (6, '123456789', 'elo.cotam@wp.pl', 'Karol', 'Nowak5', 'OCULIST', '123456789', 9);
 
 insert into visit (id, DESCRIPTION, TIME, DOCTOR_ID, PATIENT_ID)
             values (1, 'Some visit1', '2020-01-01 12:00:00', 1, 1),

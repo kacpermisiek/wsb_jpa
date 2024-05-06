@@ -21,7 +21,6 @@ public class VisitEntity {
 	private LocalDateTime time;
 
 	@ManyToOne(
-			cascade = CascadeType.ALL,
 			fetch = FetchType.LAZY,
 			optional = false
 	)
@@ -29,9 +28,8 @@ public class VisitEntity {
 	private DoctorEntity doctor;  // Relacja dwustronna
 
 	@ManyToOne(
-			cascade = CascadeType.ALL,
-			fetch = FetchType.LAZY,
-			optional = false
+			cascade = CascadeType.REMOVE,
+			fetch = FetchType.LAZY
 	)
 	private PatientEntity patient;  // Relacja dwustronna
 

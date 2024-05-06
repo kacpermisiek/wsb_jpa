@@ -20,8 +20,7 @@ public class MedicalTreatmentEntity {
 
 	@ManyToOne(
 			cascade = CascadeType.ALL,
-			fetch = FetchType.LAZY,
-			optional = false
+			fetch = FetchType.LAZY
 	)
 	private VisitEntity visit; // relacja dwustronna
 
